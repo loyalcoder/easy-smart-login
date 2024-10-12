@@ -1,13 +1,13 @@
 <?php
 
-namespace Pkun\Admin;
+namespace EasySmartLogin\Admin;
 
 class Handler
 {
     /**
      * Class initialize
      */
-    function __construct()
+    public function __construct()
     {
         add_filter('use_block_editor_for_post_type', [$this, 'disable_gutenberg_for_movie'], 10, 2);
     }
@@ -21,6 +21,10 @@ class Handler
      */
     public function disable_gutenberg_for_movie($current_status, $post_type)
     {
-        return false;
+        if ($post_type === 'movie') {
+            return false;
+        }
+
+        return $current_status;
     }
 }

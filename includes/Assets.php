@@ -1,6 +1,6 @@
 <?php
 
-namespace Pkun;
+namespace EasySmartLogin;
 
 /**
  * Assets class handler
@@ -16,37 +16,37 @@ class Assets
     }
 
     /**
-     * Pkun scripts
+     * EasySmartLogin scripts
      *
      * @return array
      */
     public function get_scripts()
     {
         return [
-            'pkun-script' => [
-                'src'     => PKUN_ASSETS . '/js/frontend.js',
-                'version' => filemtime(PKUN_PATH . '/assets/js/frontend.js'),
+            'easy-smart-login-script' => [
+                'src'     => EASY_SMART_LOGIN_ASSETS . '/js/frontend.js',
+                'version' => filemtime(EASY_SMART_LOGIN_PATH . '/assets/js/frontend.js'),
                 'deps'    => ['jquery']
             ],
-            'pkun-enquiry-script' => [
-                'src'     => PKUN_ASSETS . '/js/enquiry.js',
-                'version' => filemtime(PKUN_PATH . '/assets/js/enquiry.js'),
+            'easy-smart-login-enquiry-script' => [
+                'src'     => EASY_SMART_LOGIN_ASSETS . '/js/enquiry.js',
+                'version' => filemtime(EASY_SMART_LOGIN_PATH . '/assets/js/enquiry.js'),
                 'deps'    => ['jquery']
             ]
         ];
     }
 
     /**
-     * Pkun styles
+     * EasySmartLogin styles
      *
      * @return array
      */
     public function get_styles()
     {
         return [
-            'pkun-style' => [
-                'src'     => PKUN_ASSETS . '/css/frontend.css',
-                'version' => filemtime(PKUN_PATH . '/assets/css/frontend.css'),
+            'easy-smart-login-style' => [
+                'src'     => EASY_SMART_LOGIN_ASSETS . '/css/frontend.css',
+                'version' => filemtime(EASY_SMART_LOGIN_PATH . '/assets/css/frontend.css'),
             ]
         ];
     }
@@ -61,19 +61,19 @@ class Assets
 
         foreach ($scripts as $handle => $script) {
             $deps = isset($script['deps']) ? $script['deps'] : false;
-            $version = isset($script['version']) ? $script['version'] : PKUN_VERSION;
+            $version = isset($script['version']) ? $script['version'] : EASY_SMART_LOGIN_VERSION;
 
             wp_register_script($handle, $script['src'], $deps, $version, true);
         }
 
-        wp_localize_script('pkun-enquiry-script', 'pkun_data', [
+        wp_localize_script('easy-smart-login-enquiry-script', 'esl_data', [
             'ajax_url' => admin_url('admin-ajax.php'),
-            'message' => __('Message from enquiry form', 'pkun'),
+            'message' => __('Message from enquiry form', 'easy-smart-login'),
         ]);
 
         foreach ($styles as $handle => $style) {
             $deps = isset($style['deps']) ? $style['deps'] : false;
-            $version = isset($style['version']) ? $style['version'] : PKUN_VERSION;
+            $version = isset($style['version']) ? $style['version'] : EASY_SMART_LOGIN_VERSION;
 
             wp_register_style($handle, $style['src'], $deps, $version);
         }

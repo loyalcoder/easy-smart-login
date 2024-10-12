@@ -1,6 +1,6 @@
 <?php
 
-namespace Pkun;
+namespace EasySmartLogin;
 
 use Elementor\Plugin;
 
@@ -38,7 +38,7 @@ class Load_Elementor
 
         foreach ($scripts as $handle => $script) {
             $deps    = isset($script['deps']) ? $script['deps'] : false;
-            $version = isset($script['version']) ? $script['version'] : PKUN_VERSION;
+            $version = isset($script['version']) ? $script['version'] : (defined('EASY_SMART_LOGIN_VERSION') ? EASY_SMART_LOGIN_VERSION : '1.0.0');
             wp_register_script($handle, $script['src'], $deps, $version, true);
             wp_enqueue_script($handle);
         }
@@ -55,9 +55,9 @@ class Load_Elementor
     public function register_category($elementor)
     {
         $elementor->add_category(
-            'pkun-widgets',
+            'easy-smart-login-widgets',
             [
-                'title' =>  __('Pkun Widgets', 'pkun'),
+                'title' =>  __('Easy Smart Login Widgets', 'easy-smart-login'),
                 'icon'  => 'eicon-font',
             ]
         );
@@ -75,7 +75,7 @@ class Load_Elementor
     {
         $this->includeWidgetsFiles();
 
-        Plugin::instance()->widgets_manager->register(new Elementor\Hello_World());
+        Plugin::instance()->widgets_manager->register(new \Elementor\Hello_World());
     }
 
     /**
@@ -97,9 +97,9 @@ class Load_Elementor
     public function get_scripts()
     {
         return [
-            'pkun' => [
-                'src'     => PKUN_ASSETS . '/js/pkun.js',
-                'version' => filemtime(PKUN_PATH . '/assets/js/pkun.js'),
+            'easy-smart-login' => [
+                'src'     => defined('EASY_SMART_LOGIN_ASSETS') ? EASY_SMART_LOGIN_ASSETS . '/js/easy-smart-login.js' : '',
+                'version' => defined('EASY_SMART_LOGIN_PATH') ? filemtime(EASY_SMART_LOGIN_PATH . '/assets/js/easy-smart-login.js') : '1.0.0',
                 'deps'    => ['jquery']
             ],
         ];
@@ -115,9 +115,9 @@ class Load_Elementor
     {
         return [
 
-            'pkun' => [
-                'src'     => PKUN_ASSETS . '/css/pkun.css',
-                'version' => filemtime(PKUN_PATH . '/assets/css/pkun.css'),
+            'easy-smart-login' => [
+                'src'     => defined('EASY_SMART_LOGIN_ASSETS') ? EASY_SMART_LOGIN_ASSETS . '/css/easy-smart-login.css' : '',
+                'version' => defined('EASY_SMART_LOGIN_PATH') ? filemtime(EASY_SMART_LOGIN_PATH . '/assets/css/easy-smart-login.css') : '1.0.0',
             ]
         ];
     }
@@ -152,7 +152,7 @@ class Load_Elementor
         }
 
         foreach ($widget_list as $handle => $widget) {
-            $file = PKUN_ELEMENTOR . $widget . '.php';
+            $file = defined('EASY_SMART_LOGIN_ELEMENTOR') ? EASY_SMART_LOGIN_ELEMENTOR . $widget . '.php' : '';
             if (file_exists($file)) {
                 continue;
             }
@@ -161,14 +161,14 @@ class Load_Elementor
 
         foreach ($scripts as $handle => $script) {
             $deps    = isset($script['deps']) ? $script['deps'] : false;
-            $version = isset($script['version']) ? $script['version'] : PKUN_VERSION;
+            $version = isset($script['version']) ? $script['version'] : defined('EASY_SMART_LOGIN_VERSION') ? EASY_SMART_LOGIN_VERSION : '1.0.0';
             wp_register_script($handle, $script['src'], $deps, $version, true);
             // wp_enqueue_script($handle);
         }
 
         foreach ($styles as $handle => $style) {
             $deps = isset($style['deps']) ? $style['deps'] : false;
-            $version = isset($style['version']) ? $style['version'] : PKUN_VERSION;
+            $version = isset($style['version']) ? $style['version'] : defined('EASY_SMART_LOGIN_VERSION') ? EASY_SMART_LOGIN_VERSION : '1.0.0';
             wp_register_style($handle, $style['src'], $deps, $version);
             // wp_enqueue_style($handle);
         }

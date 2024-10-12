@@ -1,8 +1,8 @@
 <?php
 
-namespace Pkun\Admin;
+namespace EasySmartLogin\Admin;
 
-use Pkun\Traits\Test;
+use EasySmartLogin\Traits\Test;
 
 /**
  * Handle settings
@@ -18,7 +18,7 @@ class Settings
      */
     public function settings_page()
     {
-        $template = __DIR__ . '/views/settings.php';
+        $template = EASY_SMART_LOGIN_PATH . '/includes/Admin/views/settings.php';
 
         if (file_exists($template)) {
             include $template;
@@ -32,7 +32,7 @@ class Settings
      */
     public function report_page()
     {
-        $template = __DIR__ . '/views/report.php';
+        $template = EASY_SMART_LOGIN_PATH . '/includes/Admin/views/report.php';
 
         if (file_exists($template)) {
             include $template;

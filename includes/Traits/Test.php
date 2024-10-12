@@ -1,6 +1,6 @@
 <?php
 
-namespace Pkun\Traits;
+namespace EasySmartLogin\Traits;
 
 /**
  * Test Trait
@@ -14,6 +14,6 @@ trait Test
      */
     public function has_name()
     {
-        return 'Roman Ul Ferdosh';
+        return 'Updated Name';
     }
 }

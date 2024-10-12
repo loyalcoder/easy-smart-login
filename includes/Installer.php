@@ -1,6 +1,6 @@
 <?php
 
-namespace Pkun;
+namespace EasySmartLogin;
 
 class Installer
 {
@@ -22,13 +22,13 @@ class Installer
      */
     public function add_version()
     {
-        $installed = get_option('pkun_installed');
+        $installed = get_option('easy_smart_login_installed');
 
         if (!$installed) {
-            update_option('pkun_installed', time());
+            update_option('easy_smart_login_installed', time());
         }
 
-        update_option('pkun_version', PKUN_VERSION);
+        update_option('easy_smart_login_version', EASY_SMART_LOGIN_VERSION);
     }
 
     /**
@@ -42,7 +42,7 @@ class Installer
 
         $charset_collate = $wpdb->get_charset_collate();
 
-        $checkout_scheme = "CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}pkun_boilerplate` (
+        $checkout_scheme = "CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}easy_smart_login` (
             `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
             `name` varchar(250) DEFAULT NULL,
             `value` varchar(250) DEFAULT NULL,
