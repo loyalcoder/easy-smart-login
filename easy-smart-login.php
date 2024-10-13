@@ -95,6 +95,7 @@ final class EasySmartLogin
         new EasySmartLogin\Assets();
         new EasySmartLogin\Ajax();
         new EasySmartLogin\Gutenberg();
+        new EasySmartLogin\Api();
        // new EasySmartLogin\Load_Elementor();
         if (is_admin()) {
             new EasySmartLogin\Admin();
