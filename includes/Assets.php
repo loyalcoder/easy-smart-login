@@ -24,13 +24,8 @@ class Assets
     {
         return [
             'easy-smart-login-script' => [
-                'src'     => EASY_SMART_LOGIN_ASSETS . '/js/frontend.js',
-                'version' => filemtime(EASY_SMART_LOGIN_PATH . '/assets/js/frontend.js'),
-                'deps'    => ['jquery']
-            ],
-            'easy-smart-login-enquiry-script' => [
-                'src'     => EASY_SMART_LOGIN_ASSETS . '/js/enquiry.js',
-                'version' => filemtime(EASY_SMART_LOGIN_PATH . '/assets/js/enquiry.js'),
+                'src'     => EASY_SMART_LOGIN_ASSETS . '/dist/bundle.js',
+                'version' => filemtime(EASY_SMART_LOGIN_PATH . '/assets/dist/bundle.js'),
                 'deps'    => ['jquery']
             ]
         ];
@@ -45,8 +40,8 @@ class Assets
     {
         return [
             'easy-smart-login-style' => [
-                'src'     => EASY_SMART_LOGIN_ASSETS . '/css/frontend.css',
-                'version' => filemtime(EASY_SMART_LOGIN_PATH . '/assets/css/frontend.css'),
+                'src'     => EASY_SMART_LOGIN_ASSETS . '/dist/styles.css',
+                'version' => filemtime(EASY_SMART_LOGIN_PATH . '/assets/dist/styles.css'),
             ]
         ];
     }
@@ -65,7 +60,7 @@ class Assets
 
             wp_register_script($handle, $script['src'], $deps, $version, true);
         }
-
+        wp_enqueue_script('easy-smart-login-script');
         wp_localize_script('easy-smart-login-enquiry-script', 'esl_data', [
             'ajax_url' => admin_url('admin-ajax.php'),
             'message' => __('Message from enquiry form', 'easy-smart-login'),
@@ -77,5 +72,6 @@ class Assets
 
             wp_register_style($handle, $style['src'], $deps, $version);
         }
+        wp_enqueue_style('easy-smart-login-style');
     }
 }

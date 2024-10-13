@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "easy-smart-login/login-form-user-password",
+  "version": "0.3.0",
+  "title": "Login Form User Password",
+  "parent": [
+    "easy-smart-login/login-form"
+  ],
+  "category": "widgets",
+  "icon": "lock",
+  "description": "Updated login form user password block with enhanced security features.",
+  "example": {},
+  "supports": {
+    "html": false,
+    "align": true
+  },
+  "textdomain": "easy-smart-login",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

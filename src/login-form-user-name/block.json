@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "easy-smart-login/login-form-user-name",
+	"version": "0.2.0",
+	"title": "Login Form User Name",
+	"parent": [ "easy-smart-login/login-form" ],
+	"category": "widgets",
+	"icon": "lock",
+	"description": "Updated login form user name block with enhanced features.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": true
+	},
+	"textdomain": "easy-smart-login",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

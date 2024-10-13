@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "easy-smart-login/login-form-user-authenticate-cookie",
+	"version": "0.5.0",
+	"title": "Login Form User Authenticate Cookie",
+	"parent": [ "easy-smart-login/login-form" ],
+	"category": "widgets",
+	"icon": "cookie",
+	"description": "Login form user authenticate cookie block with enhanced security features.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": true,
+		"color": {
+			"background": true,
+			"text": true
+		}
+	},
+	"textdomain": "easy-smart-login",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

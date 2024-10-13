@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "easy-smart-login/login-form-submit",
+  "version": "0.2.0",
+  "title": "Login Form Submit Button",
+  "category": "widgets",
+  "icon": "button",
+  "description": "Login form submit button block.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "easy-smart-login",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "parent": [
+    "easy-smart-login/login-form"
+  ]
+}
