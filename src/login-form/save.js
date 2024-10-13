@@ -19,7 +19,7 @@ import { InnerBlocks } from '@wordpress/block-editor';
 export default function save() {
     return (
         <div { ...useBlockProps.save() }>
-             <form action={'/'} method="post" className='easy-smart-login-form'>
+             <form action={'/easy-smart-login/v1/login'} method="post" className='easy-smart-login-form'>
                 <InnerBlocks.Content />
             </form>
         </div>
